@@ -6,9 +6,9 @@
 
 typedef struct Queue
 {
-    int *pBase;
+    int *pBase;///数组（应为数组的名字也是第一个元素的指针
     int front;////头下标
-    int rear; //位下标
+    int rear; //尾下标
     int leng;
 }QUEUE, *pQueue;
 
@@ -49,7 +49,7 @@ void init(pQueue pQ , int length){
     pQ ->leng = length;
 }
 
-
+////以满
 bool fulled(pQueue pQ) {
     if ((pQ ->rear + 1)% pQ->leng == pQ ->front)
     {
@@ -61,6 +61,7 @@ bool fulled(pQueue pQ) {
     }
 }
 
+//空
 bool empty(pQueue pQ ) {
     if (pQ->front == pQ ->rear)
     {
@@ -72,6 +73,7 @@ bool empty(pQueue pQ ) {
     }
 }
 
+//插入
 bool enterQueue(pQueue pQ, int value)
 {
     if ( fulled(pQ))
